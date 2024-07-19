@@ -14,7 +14,7 @@ This tool is designed to help you retrieve BitLocker keys from Intune using a de
 ### Step 1: Register an App in Entra
 
 1. **Access the Entra Portal**: Open the Entra portal in your web browser.
-2. **Navigate to App Registrations**: Go to **Azure Active Directory** > **App registrations**.
+2. **Navigate to App Registrations**: Go to **Applications** > **App registrations**.
 3. **Create a New Registration**:
    - Click on **New registration**.
    - Fill out the registration form:
