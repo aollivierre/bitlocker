@@ -1,6 +1,4 @@
-Sure, here's a re-written version of the README in a new format:
 
----
 
 # BitLocker Key Retrieval Tool
 
