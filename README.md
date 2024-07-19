@@ -76,7 +76,7 @@ This script uses the access token to interact with the BitLocker API and retriev
 
 ## Important Notes
 
-- **BitLocker Recovery Key Requirement**: If your drive is BitLocker-encrypted, you can these steps to skip
+- **BitLocker Recovery Key Requirement**: If your drive is BitLocker-encrypted, you can follow these steps to skip the recovery key prompt:
 
 1️⃣ Cycle through BSODs until you get the recovery screen.
 2️⃣ Navigate to Troubleshoot > Advanced Options > Startup Settings.
@@ -93,6 +93,7 @@ This script uses the access token to interact with the BitLocker API and retriev
 1️⃣3️⃣ Open Command Prompt (as administrator).
 1️⃣4️⃣ Type bcdedit /deletevalue {default} safeboot, then press Enter.
 1️⃣5️⃣ Restart as normal and confirm normal behavior.
+
  
 - **Permissions**: Ensure your app has the required permissions in Entra to access BitLocker keys.
 - **PowerShell Environment**: These scripts are designed to be executed in a PowerShell environment.
