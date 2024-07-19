@@ -76,8 +76,6 @@ This script uses the access token to interact with the BitLocker API and retriev
 
 ## Important Notes
 
-Let's adjust the formatting to make it more GitHub-friendly:
-
 ---
 
 ### BitLocker Recovery Key Requirement
@@ -109,8 +107,6 @@ Ensure your app has the required permissions in Entra to access BitLocker keys.
 These scripts are designed to be executed in a PowerShell environment.
 
 ---
-
-This should look better in a GitHub README file.
 
 
 ## Troubleshooting
