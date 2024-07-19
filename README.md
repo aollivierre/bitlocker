@@ -76,7 +76,24 @@ This script uses the access token to interact with the BitLocker API and retriev
 
 ## Important Notes
 
-- **BitLocker Recovery Key Requirement**: If your drive is BitLocker-encrypted, you'll need the recovery key to boot into Safe Mode.
+- **BitLocker Recovery Key Requirement**: If your drive is BitLocker-encrypted, you can these steps to skip
+
+1️⃣ Cycle through BSODs until you get the recovery screen.
+2️⃣ Navigate to Troubleshoot > Advanced Options > Startup Settings.
+3️⃣ Press "Restart".
+4️⃣ Skip the first BitLocker recovery key prompt by pressing Esc.
+5️⃣ Skip the second BitLocker recovery key prompt by selecting Skip This Drive in the bottom right.
+6️⃣ Navigate to Troubleshoot > Advanced Options > Command Prompt.
+7️⃣ Type bcdedit /set {default} safeboot minimal, then press Enter.
+8️⃣ Go back to the WinRE main menu and select Continue.
+9️⃣ It may cycle 2-3 times.
+🔟 If you booted into safe mode, log in as normal.
+1️⃣1️⃣ Open Windows Explorer, navigate to C:\Windows\System32\drivers\Crowdstrike.
+1️⃣2️⃣ Delete the offending file (starts with C-00000291* and has a .sys file extension).
+1️⃣3️⃣ Open Command Prompt (as administrator).
+1️⃣4️⃣ Type bcdedit /deletevalue {default} safeboot, then press Enter.
+1️⃣5️⃣ Restart as normal and confirm normal behavior.
+ 
 - **Permissions**: Ensure your app has the required permissions in Entra to access BitLocker keys.
 - **PowerShell Environment**: These scripts are designed to be executed in a PowerShell environment.
 
