@@ -1,32 +1,37 @@
-Here's a clear and detailed `README.md` for your GitHub repository:
+Sure, here's a re-written version of the README in a new format:
 
-```markdown
+---
+
 # BitLocker Key Retrieval Tool
 
-This tool allows you to retrieve BitLocker keys from Intune using a delegated token. Follow the steps below to set up and use the tool.
+This tool is designed to help you retrieve BitLocker keys from Intune using a delegated token. Follow these instructions to set up and use the tool effectively.
 
 ## Prerequisites
 
-1. Create an app registration in Entra (formerly Azure AD).
-2. Populate the `secrets.json` file with the necessary credentials.
+1. **App Registration in Entra (formerly Azure AD)**: You need to register an application in Entra.
+2. **Configuration of `secrets.json` File**: Populate this file with the necessary credentials.
 
-## Setting Up
+## Setup Instructions
 
-### Step 1: Create an App Registration in Entra
+### Step 1: Register an App in Entra
 
-1. Go to the Entra portal.
-2. Navigate to **Azure Active Directory** > **App registrations**.
-3. Click on **New registration**.
-4. Fill in the registration form:
-   - **Name**: Enter a name for your app.
-   - **Redirect URI**: Set it to `https://login.microsoftonline.com/common/oauth2/nativeclient`.
-5. Click **Register**.
-6. After registration, go to the app's overview page and note down the **Application (client) ID** and **Directory (tenant) ID**.
-7. Navigate to **Certificates & secrets** and create a new client secret. Note down the client secret value.
+1. **Access the Entra Portal**: Open the Entra portal in your web browser.
+2. **Navigate to App Registrations**: Go to **Azure Active Directory** > **App registrations**.
+3. **Create a New Registration**:
+   - Click on **New registration**.
+   - Fill out the registration form:
+     - **Name**: Provide a name for your application.
+     - **Redirect URI**: Set this to `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+   - Click **Register** to complete the registration.
+4. **Collect Important Details**:
+   - On the app's overview page, note down the **Application (client) ID** and **Directory (tenant) ID**.
+5. **Create a Client Secret**:
+   - Navigate to **Certificates & secrets**.
+   - Generate a new client secret and make sure to save its value.
 
-### Step 2: Populate the `secrets.json` File
+### Step 2: Configure `secrets.json`
 
-Create a `secrets.json` file in the root directory of your project with the following content:
+Create a `secrets.json` file in your project’s root directory with the following content:
 
 ```json
 {
@@ -37,57 +42,54 @@ Create a `secrets.json` file in the root directory of your project with the foll
 }
 ```
 
-Replace the placeholder values with the actual values from your app registration.
+Replace the placeholder values with your actual app registration details.
 
 ## Usage
 
-### Step 1: Run `Acquire-RefreshTokenInteractively-Part1`
+### Step 1: Acquire Refresh Token Interactively - Part 1
 
-Open PowerShell and run the following command:
+Run the following command in PowerShell:
 
 ```powershell
 ./Acquire-RefreshTokenInteractively-Part1.ps1
 ```
 
-This script will prompt you to sign in and grant permissions to your app. After successful authentication, it will store a refresh token securely.
+This script will prompt you to sign in and grant permissions to your app. It securely stores a refresh token.
 
-### Step 2: Run `Acquire-RefreshTokenInteractively-Part2`
+### Step 2: Acquire Refresh Token Interactively - Part 2
 
-Next, run the following command:
+Next, execute:
 
 ```powershell
 ./Acquire-RefreshTokenInteractively-Part2.ps1
 ```
 
-This script uses the refresh token obtained in Part 1 to acquire an access token. The resulting token is a delegated token, meaning you can use it non-interactively as the BitLocker API only supports delegated permissions, not app permissions.
+This script uses the previously obtained refresh token to acquire an access token. The resulting token is a delegated token, allowing non-interactive use with the BitLocker API, which only supports delegated permissions.
 
-### Step 3: Run `Retrieve-BitLockerKeys-Intune-v3-REST-Filter-Interactive-MultipleChoice`
+### Step 3: Retrieve BitLocker Keys
 
-Finally, retrieve the BitLocker keys by running:
+Finally, run the following script to retrieve the BitLocker keys:
 
 ```powershell
 ./Retrieve-BitLockerKeys-Intune-v3-REST-Filter-Interactive-MultipleChoice.ps1
 ```
 
-This script will use the access token to interact with the BitLocker API and retrieve the keys based on your specified filters.
+This script uses the access token to interact with the BitLocker API and retrieve the necessary keys based on specified filters.
 
-## Notes
+## Important Notes
 
-- Ensure you have the necessary permissions assigned to your app in Entra to access BitLocker keys.
-- The scripts are designed to run in a PowerShell environment.
+- **BitLocker Recovery Key Requirement**: If your drive is BitLocker-encrypted, you'll need the recovery key to boot into Safe Mode.
+- **Permissions**: Ensure your app has the required permissions in Entra to access BitLocker keys.
+- **PowerShell Environment**: These scripts are designed to be executed in a PowerShell environment.
 
 ## Troubleshooting
 
-If you encounter any issues, please refer to the error messages provided by the scripts or consult the [Microsoft Graph API documentation](https://learn.microsoft.com/en-us/graph/use-the-api) for more details.
+For any issues, refer to the error messages provided by the scripts or consult the [Microsoft Graph API documentation](https://learn.microsoft.com/en-us/graph/use-the-api) for more information.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ---
 
 Feel free to reach out for any further assistance.
-
-```
-
-Replace the placeholders with the appropriate values and ensure the script names match the actual script files you have.
